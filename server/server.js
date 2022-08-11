@@ -3,6 +3,15 @@ const express = require("express");
 const mongoose = require("mongoose");
 
 const app = express();
+const pinRoute = require("./routes/pins");
+const userRoute = require("./routes/users");
+
+//middleware
+app.use(express.json());
+
+//routes
+app.use("/api/users", userRoute);
+app.use("/api/pins", pinRoute);
 
 //connect to db
 
